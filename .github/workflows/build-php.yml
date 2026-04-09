@@ -155,9 +155,7 @@ jobs:
       - name: Build PHP
         run: |
           cd ../static-php-cli
-          # Adicionamos --build-micro, --no-zts e removemos o --build-cli
-          ./bin/${{ env.SPC_BINARY }} build --build-micro "${{ env.PHP_EXTENSIONS }}" --with-libs="${{ env.PHP_LIBS }}" --no-zts --debug
-          cd ../php-bin
+          ./bin/${{ env.SPC_BINARY }} build --build-cli "${{ env.PHP_EXTENSIONS }}" --with-libs="${{ env.PHP_LIBS }}" --debug
 
       - name: Get built PHP version
         shell: bash
@@ -180,7 +178,7 @@ jobs:
         shell: bash
         run: |
           if [[ "${{ matrix.os }}" == "windows-latest" ]]; then
-            powershell Compress-Archive -Path "../static-php-cli/buildroot/bin/micro.sfx" -DestinationPath "bin/${{ env.SPC_BUILD_OS }}/${{ env.SPC_BUILD_ARCH }}/php-micro-${{ env.PHP_VERSION }}.zip" -Force
+            powershell Compress-Archive -Path "../static-php-cli/buildroot/bin/php.exe" -DestinationPath "bin/${{ env.SPC_BUILD_OS }}/${{ env.SPC_BUILD_ARCH }}/php-${{ env.PHP_VERSION }}.zip" -Force
           else
             rm -f bin/${{ env.SPC_BUILD_OS }}/${{ env.SPC_BUILD_ARCH }}/php-${{ env.PHP_VERSION }}.zip
             mkdir -p tmp-bin
