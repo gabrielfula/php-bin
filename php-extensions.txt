@@ -1,1 +1,1 @@
-bcmath,ctype,curl,dom,fileinfo,mbstring,openssl,pdo,pdo_mysql,pdo_pgsql,session,tokenizer,xml,xmlreader,xmlwriter,zip,iconv,sockets,simplexml,phar,opcache
+bcmath,ctype,curl,dom,fileinfo,mbstring,openssl,pdo,session,tokenizer,xml,xmlreader,xmlwriter,zip,iconv,sockets,simplexml,phar,opcache
